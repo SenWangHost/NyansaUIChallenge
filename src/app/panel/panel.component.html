@@ -1,0 +1,18 @@
+<div *ngIf="sortedByField">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">IP</th>
+                <th scope="col">Owner</th>
+                <th scope="col">{{sortedByField}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let device of topFiveDevices">
+                <td>{{device.ip}}</td>
+                <td>{{device.owner}}</td>
+                <td>{{device[sortedField] | number : '1.2-2'}} {{unit}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
