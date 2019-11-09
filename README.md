@@ -1,27 +1,29 @@
-# DevicesUi
+# DevicesUI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
+## Instructions to run the UI application
+Two simple steps to follow to run the UI application when you navigate to the directory where package.json resides.
 
-## Development server
+1. npm install => install the third party libraries.
+2. npm start => run the application in standle alone mode.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Tech stack
+Two frameworks are used in this UI application:
 
-## Code scaffolding
+1. [Angular](https://angular.io/): the third party js/ts library, the initial project structure is generated using angular cli tool. 
+2. [Boostrap](https://getbootstrap.com/): the third party css framework for creating simple and beautiful UI components
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Overview of UI structure
+1. Data: I created a class of device(**src/app/device.ts**) and a sample data file(**src/app/sample-devices.ts**) for serving the UI application when running in stand alone mode
 
-## Build
+2. UI layout:
+the UI is consist of four components:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* HeaderComponent(**src/app/header**): which is simply a nav bar display the title: device manager
 
-## Running unit tests
+* FooterComponent(**src/app/footer**): which is simply a div element displaying the version number
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* DashboardComponent(**src/app/dashboard**): this is the component where it has the table for displaying the whole list of device and also a drop down button and Panel component for displaying the top five devices that user chooses to get. This component(**src/app/dashboard/dashboard.component.ts**) has the main logic for displaying the list, toggle the selcted field by the user and further pass those data to the panel component. The editting of owner's name is achieved using input html element and two-way data binding mechanism(**ngModel**) built in angular.
 
-## Running end-to-end tests
+* PanelComponent(**src/app/panel**): this is the component where it receive the field that user to choose, the list of devices and render the top five devices. This component(**src/app/panel.component.ts**) contains the logic for sorting the devices list and display corresponding field and top five device in the table.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Also, more details are covered in the comment of source ode

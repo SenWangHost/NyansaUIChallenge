@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <div>
         <div>
+            <!-- the drop down button which allows the user to change the field to sort the list -->
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Top 5 Devices in {{selectedField}}
@@ -16,6 +17,7 @@
       <h1>Devices</h1>
     </div>
     <div class="col-lg">
+      <!-- the table for showing all the deives and all the fields -->
       <table class="table table-striped">
           <thead>
             <tr>
@@ -26,9 +28,11 @@
             <tr *ngFor="let device of devices">
               <td>{{device.ip}}</td>
               <td>
+                  <!-- use two way data binding to enable change of device owner -->
                   <input [(ngModel)]="device.owner" placeholder="name"/>
               </td>
               <td>{{device.cpu}}%</td>
+              <!-- the angular built in pipe to limit the digits to shown on the table -->
               <td>{{device.mem | number : '1.2-2'}} GB</td>
               <td>{{device.tx | number : '1.2-2'}} MB</td>
               <td>{{device.rx | number : '1.2-2'}} MB</td>
