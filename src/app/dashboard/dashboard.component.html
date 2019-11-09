@@ -1,4 +1,4 @@
-<div>
+<div class="container-fluid">
     <div>
         <div>
             <div class="dropdown">
@@ -6,30 +6,34 @@
                     Top 5 Devices in {{selectedField}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" *ngFor="let field of fields.slice(2)" (click)="selectField(field)">{{field}}</a>
+                    <a class="dropdown-item" *ngFor="let field of fields.slice(2)" (click)="selectField(field)" [ngClass]="{'active' : field === selectedField}">{{field}}</a>
                 </div>
             </div>
             <app-panel [sortedByField]="selectedField" [devices]="devices"></app-panel>
         </div>
     </div>
-    <div><h2>Devices</h2></div>
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col" *ngFor="let field of fields">{{field}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let device of devices">
-            <td>{{device.ip}}</td>
-            <td>
-                <input [(ngModel)]="device.owner" placeholder="name"/>
-            </td>
-            <td>{{device.cpu}}%</td>
-            <td>{{device.mem | number : '1.2-2'}} GB</td>
-            <td>{{device.tx | number : '1.2-2'}} MB</td>
-            <td>{{device.rx | number : '1.2-2'}} MB</td>
-          </tr>
-        </tbody>
-    </table>
+    <div>
+      <h1>Devices</h1>
+    </div>
+    <div class="col-lg">
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col" *ngFor="let field of fields">{{field}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let device of devices">
+              <td>{{device.ip}}</td>
+              <td>
+                  <input [(ngModel)]="device.owner" placeholder="name"/>
+              </td>
+              <td>{{device.cpu}}%</td>
+              <td>{{device.mem | number : '1.2-2'}} GB</td>
+              <td>{{device.tx | number : '1.2-2'}} MB</td>
+              <td>{{device.rx | number : '1.2-2'}} MB</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
 </div>

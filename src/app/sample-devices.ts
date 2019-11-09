@@ -1,5 +1,7 @@
 import {Device} from './device';
-
+/**
+ * Fake sample data: a list of device
+ */
 export const DEVICES: Device[] = [
     {ip: '150.1.1.1', owner: 'Jack Brown', cpu: 75, mem: 2.00, tx: 10.00, rx: 4.00},
     {ip: '164.1.1.1', owner: 'Simon Homestead', cpu: 20, mem: 1.00, tx: 3.00, rx: 20.00},
